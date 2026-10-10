@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Game Wiki</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+
+    <header class="site-header">
+        <div class="header-left">
+            <a href="/" class="logo">
+                <img src="{{ url_for('static', filename='images/icon/placeholder_icon.png') }}" alt="Game Wiki home">
+            </a>
+            <input type="search" class="search-bar" placeholder="Search games, items">
+        </div>
+
+        <nav class="main-nav">
+            <a class="nav-item" href="#">Games</a>
+            <a class="nav-item" href="#">Wiki</a>
+            <a class="nav-item" href="#">News</a>
+            <a class="nav-item" href="#">Support</a>
+            <a class="nav-item" href="https://discord.gg/your-invite" target="_blank" rel="noopener">Discord</a>
+        </nav>
+
+        <div class = "header-right">
+            <a href = "#" class="icon-btn" aria-label="Search"></a>
+            <a href = "#" class = "user-icon">
+                <img src="{{ url_for('static', filename='images/icon/usericon.png') }}" alt="Your account">
+            </a>
+        </div>
+
+
+
+</body>
+</html>
