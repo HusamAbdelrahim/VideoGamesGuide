@@ -1,3 +1,6 @@
+/* =========================================================
+   Base
+   ========================================================= */
 * {
     box-sizing: border-box;
 }
@@ -5,11 +8,16 @@
 body {
     margin: 0;
     font-family: Arial, Helvetica, sans-serif;
+    background: #121212;
+    color: #ffffff;
 }
 
+/* =========================================================
+   Header (lives in base.html)
+   ========================================================= */
 .site-header {
     display: grid;
-    grid-template-columns: 1fr auto 1fr;
+    grid-template-columns: 1fr auto 1fr;   /* left | centered nav | right */
     align-items: center;
     padding: 12px 32px;
     background: #4f6a9a;
@@ -21,23 +29,31 @@ body {
     gap: 16px;
 }
 
+.header-right {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    justify-self: end;                     /* push to the far right */
+}
+
+/* Size every image in the header */
 .site-header img {
     height: 44px;
     width: auto;
     display: block;
 }
 
-.header-right {
-    display: flex;
-    align-items: center;
-    gap: 16px;
-    justify-self: end;
-}
-
 .user-icon img {
-    width: 40\px;
+    width: 40px;
     height: 40px;
     border-radius: 50%;
+}
+
+.search-bar {
+    padding: 6px 12px;
+    border: none;
+    border-radius: 999px;
+    width: 200px;
 }
 
 .main-nav {
@@ -57,9 +73,138 @@ body {
     opacity: 0.75;
 }
 
-.search-bar {
-    padding: 6px 12px;
+/* =========================================================
+   Homepage layout (index.html)
+   ========================================================= */
+.home-layout {
+    display: grid;
+    grid-template-columns: 3fr 1fr;        /* slideshow 3/4, sidebar 1/4 */
+    gap: 24px;
+    padding: 24px 32px;
+}
+
+/* =========================================================
+   Slideshow
+   ========================================================= */
+.slideshow {
+    position: relative;
+    border-radius: 16px;
+    overflow: hidden;                      /* clips image to rounded corners */
+    aspect-ratio: 16 / 9;
+    background: #1a1a1a;
+}
+
+.slide {
+    display: none;                         /* hide every slide... */
+    position: absolute;
+    inset: 0;
+}
+
+.slide.active {
+    display: block;                        /* ...except the active one */
+}
+
+.slide img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.slide-caption {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    padding: 24px;
+    background: rgba(0, 0, 0, 0.5);
+}
+
+.slide-caption h2 {
+    margin: 0 0 4px;
+}
+
+.slide-caption p {
+    margin: 0;
+    opacity: 0.85;
+}
+
+.slide-controls {
+    position: absolute;
+    bottom: 12px;
+    right: 24px;
+    display: flex;
+    gap: 8px;
+}
+
+.slide-dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
     border: none;
-    border-radius: 999px;
-    width: 200px;
+    padding: 0;
+    background: rgba(255, 255, 255, 0.5);
+    cursor: pointer;
+}
+
+.slide-dot.active {
+    background: #ffffff;
+}
+
+/* =========================================================
+   Relevant Wikis sidebar
+   ========================================================= */
+.relevant-wikis {
+    background: #1a1a1a;
+    border-radius: 16px;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.relevant-wikis h3 {
+    margin: 0 0 8px;
+}
+
+.wiki-item {
+    display: flex;                         /* thumbnail + text side by side */
+    align-items: center;
+    gap: 12px;
+    padding: 8px;
+    border-radius: 10px;
+    text-decoration: none;
+    color: inherit;
+}
+
+.wiki-item:hover {
+    background: rgba(255, 255, 255, 0.08);
+}
+
+.wiki-item img {
+    width: 96px;
+    height: 54px;                          /* 16:9 thumbnail */
+    object-fit: cover;
+    border-radius: 6px;
+    flex-shrink: 0;                        /* don't let long text squish it */
+}
+
+.wiki-item-text h4 {
+    margin: 0 0 4px;
+    font-size: 14px;
+}
+
+.wiki-item-text p {
+    margin: 0;
+    font-size: 12px;
+    opacity: 0.7;
+}
+
+/* =========================================================
+   Phones / narrow screens
+   ========================================================= */
+@media (max-width: 800px) {
+    .home-layout {
+        grid-template-columns: 1fr;        /* sidebar drops under slideshow */
+        padding: 16px;
+    }
 }

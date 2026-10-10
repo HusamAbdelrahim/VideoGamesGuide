@@ -1,37 +1,87 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Game Wiki</title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
-</head>
-<body>
+{% extends "base.html" %}
 
-    <header class="site-header">
-        <div class="header-left">
-            <a href="/" class="logo">
-                <img src="{{ url_for('static', filename='images/icon/placeholder_icon.png') }}" alt="Game Wiki home">
-            </a>
-            <input type="search" class="search-bar" placeholder="Search games, items">
+{% block content %}
+<div class="home-layout">
+
+    <section class="slideshow">
+
+        <div class="slide active">
+            <img src="{{ url_for('static', filename='images/Games/JasonLuciaLand.jpg') }}" alt="">
+            <div class="slide-caption">
+                <h2>Grand Theft Auto VI</h2>
+                <p>Coming soon: November 19, 2026</p>
+            </div>
         </div>
 
-        <nav class="main-nav">
-            <a class="nav-item" href="#">Games</a>
-            <a class="nav-item" href="#">Wiki</a>
-            <a class="nav-item" href="#">News</a>
-            <a class="nav-item" href="#">Support</a>
-            <a class="nav-item" href="https://discord.gg/your-invite" target="_blank" rel="noopener">Discord</a>
+        <div class="slide">
+            <img src="{{ url_for('static', filename='images/games/EldenRing169.jpg') }}" alt="">
+            <div class="slide-caption">
+                <h2>Elden Ring</h2>
+                <p>Weapons, Bosses, Interactive Map, Data</p>
+            </div>
+        </div>
+
+        <div class="slide">
+            <img src="{{ url_for('static', filename='images/games/A-mercenary-on-the-rise-en.jpg') }}" alt="">
+            <div class="slide-caption">
+                <h2>Cyberpunk 2077</h2>
+                <p>Cyberware, Items, Weapons, Perks, Interactive Map, Data</p>
+            </div>
+        </div>
+
+        <div class="slide">
+            <img src="{{ url_for('static', filename='images/games/MonsterHunterWilds169.jpg') }}" alt="">
+            <div class="slide-caption">
+                <h2>Monster Hunter Wilds</h2>
+                <p>Monster Weaknesses, Stats, Data</p>
+            </div>
+        </div>
+
+        <div class="slide">
+            <img src="{{ url_for('static', filename='images/games/TerrariaOfficialPic169.jpg') }}" alt="">
+            <div class="slide-caption">
+                <h2>Terraria</h2>
+                <p>Weapons, Classes, Bosses, Stats, Data</p>
+            </div>
+        </div>
+
+        <nav class="slide-controls" aria-label="Slideshow">
+            <button class="slide-dot active" aria-label="Slide 1"></button>
+            <button class="slide-dot" aria-label="Slide 2"></button>
+            <button class="slide-dot" aria-label="Slide 3"></button>
+            <button class="slide-dot" aria-label="Slide 4"></button>
+            <button class="slide-dot" aria-label="Slide 5"></button>
         </nav>
 
-        <div class = "header-right">
-            <a href = "#" class="icon-btn" aria-label="Search"></a>
-            <a href = "#" class = "user-icon">
-                <img src="{{ url_for('static', filename='images/icon/usericon.png') }}" alt="Your account">
-            </a>
-        </div>
+    </section>
 
+    <aside class="relevant-wikis">
+        <h3>Relevant Wikis</h3>
 
+        <a href="#" class="wiki-item">
+            <img src="{{ url_for('static', filename='images/games/OnimushaThumbnail.jpg') }}" alt="">
+            <div class="wiki-item-text">
+                <h4>Onimusha: Way of the Sword</h4>
+                <p>Read more about monsters, skills, and bosses</p>
+            </div>
+        </a>
 
-</body>
-</html>
+        <a href="#" class="wiki-item">
+            <img src="{{ url_for('static', filename='images/games/SilksongThumbnail.jpg') }}" alt="">
+            <div class="wiki-item-text">
+                <h4>Hollow Knight: Silksong</h4>
+                <p>Explore the haunted kingdom and survive with guides</p>
+            </div>
+        </a>
+
+        <a href="#" class="wiki-item">
+            <img src="{{ url_for('static', filename='images/games/ResidentEvil4Thumbnail.jpg') }}" alt="">
+            <div class="wiki-item-text">
+                <h4>Resident Evil 4</h4>
+                <p>Survive the cruel world and rescue Ashley</p>
+            </div>
+        </a>
+    </aside>
+
+</div>
+{% endblock %}
