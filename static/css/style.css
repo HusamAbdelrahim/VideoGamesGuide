@@ -1,6 +1,3 @@
-/* =========================================================
-   Base
-   ========================================================= */
 * {
     box-sizing: border-box;
 }
@@ -12,12 +9,9 @@ body {
     color: #ffffff;
 }
 
-/* =========================================================
-   Header (lives in base.html)
-   ========================================================= */
 .site-header {
     display: grid;
-    grid-template-columns: 1fr auto 1fr;   /* left | centered nav | right */
+    grid-template-columns: 1fr auto 1fr;
     align-items: center;
     padding: 12px 32px;
     background: #4f6a9a;
@@ -33,10 +27,9 @@ body {
     display: flex;
     align-items: center;
     gap: 16px;
-    justify-self: end;                     /* push to the far right */
+    justify-self: end;
 }
 
-/* Size every image in the header */
 .site-header img {
     height: 44px;
     width: auto;
@@ -73,35 +66,32 @@ body {
     opacity: 0.75;
 }
 
-/* =========================================================
-   Homepage layout (index.html)
-   ========================================================= */
 .home-layout {
     display: grid;
-    grid-template-columns: 3fr 1fr;        /* slideshow 3/4, sidebar 1/4 */
+
+    grid-template-columns: minmax(0, 3fr) minmax(320px, 1fr);
     gap: 24px;
     padding: 24px 32px;
 }
 
-/* =========================================================
-   Slideshow
-   ========================================================= */
 .slideshow {
     position: relative;
     border-radius: 16px;
-    overflow: hidden;                      /* clips image to rounded corners */
+    overflow: hidden;
     aspect-ratio: 16 / 9;
     background: #1a1a1a;
 }
 
-.slide {
-    display: none;                         /* hide every slide... */
-    position: absolute;
-    inset: 0;
+.slide-track {
+    display: flex;
+    height: 100%;
+    transition: transform 0.8s ease;
 }
 
-.slide.active {
-    display: block;                        /* ...except the active one */
+.slide {
+    flex: 0 0 100%;
+    position: relative;
+    height: 100%;
 }
 
 .slide img {
@@ -150,30 +140,91 @@ body {
     background: #ffffff;
 }
 
-/* =========================================================
-   Relevant Wikis sidebar
-   ========================================================= */
+.slide-arrow {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 44px;
+    height: 44px;
+    border: none;
+    border-radius: 50%;
+    background: rgba(0, 0, 0, 0.45);
+    color: #ffffff;
+    font-size: 22px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transition: opacity 0.25s ease, background 0.25s ease;
+}
+
+.slide-arrow.prev {
+    left: 16px;
+}
+
+.slide-arrow.next {
+    right: 16px;
+}
+
+.slideshow:hover .slide-arrow {
+    opacity: 1;
+}
+
+.slide-arrow:hover {
+    background: rgba(0, 0, 0, 0.7);
+}
+
 .relevant-wikis {
     background: #1a1a1a;
     border-radius: 16px;
-    padding: 20px;
+    padding: 24px;
     display: flex;
     flex-direction: column;
-    gap: 8px;
+    gap: 12px;
+
+    height: 0;
+    min-height: 100%;
 }
 
 .relevant-wikis h3 {
-    margin: 0 0 8px;
+    margin: 0;
+    font-size: 20px;
+}
+
+.wiki-list {
+    flex: 1;
+    min-height: 0;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    padding-right: 4px;
+}
+
+.wiki-list {
+    scrollbar-width: thin;
+    scrollbar-color: rgba(255, 255, 255, 0.25) transparent;
+}
+
+.wiki-list::-webkit-scrollbar {
+    width: 6px;
+}
+
+.wiki-list::-webkit-scrollbar-thumb {
+    background: rgba(255, 255, 255, 0.25);
+    border-radius: 999px;
 }
 
 .wiki-item {
-    display: flex;                         /* thumbnail + text side by side */
+    display: flex;
     align-items: center;
-    gap: 12px;
-    padding: 8px;
-    border-radius: 10px;
+    gap: 16px;
+    padding: 10px;
+    border-radius: 12px;
     text-decoration: none;
     color: inherit;
+    flex-shrink: 0;
 }
 
 .wiki-item:hover {
@@ -181,30 +232,206 @@ body {
 }
 
 .wiki-item img {
-    width: 96px;
-    height: 54px;                          /* 16:9 thumbnail */
+    width: 140px;
+    height: 79px;
     object-fit: cover;
-    border-radius: 6px;
-    flex-shrink: 0;                        /* don't let long text squish it */
+    border-radius: 8px;
+    flex-shrink: 0;
 }
 
 .wiki-item-text h4 {
-    margin: 0 0 4px;
-    font-size: 14px;
+    margin: 0 0 6px;
+    font-size: 16px;
 }
 
 .wiki-item-text p {
     margin: 0;
-    font-size: 12px;
+    font-size: 13px;
     opacity: 0.7;
+    line-height: 1.4;
+
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
 }
 
-/* =========================================================
-   Phones / narrow screens
-   ========================================================= */
-@media (max-width: 800px) {
+.view-all {
+    text-align: center;
+    padding: 12px;
+    border-radius: 12px;
+    color: #ffffff;
+    text-decoration: none;
+    background: rgba(255, 255, 255, 0.06);
+}
+
+.view-all:hover {
+    background: rgba(255, 255, 255, 0.12);
+}
+
+.wiki-page {
+    padding: 24px 32px 48px;
+}
+
+.wiki-hero {
+    padding: 56px 40px;
+    border-radius: 16px;
+    background: linear-gradient(120deg, #1f2a44, #3b2a5c, #5a4512, #1d3b3a, #1f2a44);
+    background-size: 300% 300%;
+    animation: hero-shift 16s ease infinite;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    margin-bottom: 40px;
+}
+
+@keyframes hero-shift {
+    0%   { background-position: 0% 50%; }
+    50%  { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .wiki-hero {
+        animation: none;
+    }
+}
+
+.wiki-eyebrow {
+    margin: 0 0 8px;
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: #c9a227;
+}
+
+.wiki-hero h1 {
+    margin: 0 0 12px;
+    font-size: 40px;
+    line-height: 1.15;
+}
+
+.wiki-hero-sub {
+    margin: 0;
+    max-width: 560px;
+    font-size: 16px;
+    line-height: 1.6;
+    opacity: 0.75;
+}
+
+.section-title {
+    margin: 0 0 20px;
+    font-size: 22px;
+}
+
+.wiki-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 24px;
+}
+
+.game-card {
+    display: block;
+    text-decoration: none;
+    color: inherit;
+}
+
+.game-card-cover {
+    position: relative;
+    aspect-ratio: 3 / 4;
+    border-radius: 12px;
+    overflow: hidden;
+    background: #1a1a1a;
+    margin-bottom: 10px;
+}
+
+.game-card-cover img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+}
+
+.game-card-badge {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    padding: 4px 10px;
+    border-radius: 999px;
+    background: rgba(0, 0, 0, 0.7);
+    font-size: 12px;
+    font-weight: 700;
+}
+
+.game-card-title {
+    margin: 0 0 6px;
+    font-size: 16px;
+}
+
+.game-card-stats {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    font-size: 13px;
+    opacity: 0.65;
+}
+
+a.game-card:hover .game-card-cover img {
+    transform: scale(1.05);
+}
+
+a.game-card:hover .game-card-title {
+    color: #c9a227;
+}
+
+.game-card.coming-soon {
+    opacity: 0.45;
+    cursor: default;
+}
+
+@media (max-width: 1400px) {
+    .wiki-item img {
+        width: 104px;
+        height: 58px;
+    }
+
+    .wiki-item-text h4 {
+        font-size: 14px;
+    }
+
+    .wiki-item-text p {
+        font-size: 12px;
+    }
+}
+
+@media (max-width: 1100px) {
     .home-layout {
-        grid-template-columns: 1fr;        /* sidebar drops under slideshow */
+        grid-template-columns: 1fr;
         padding: 16px;
+    }
+
+    .relevant-wikis {
+        height: auto;
+        min-height: 0;
+    }
+
+    .wiki-list {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+        gap: 16px;
+        flex: none;
+        overflow: visible;
+        padding-right: 0;
+    }
+
+    .wiki-item {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 10px;
+    }
+
+    .wiki-item img {
+        width: 100%;
+        height: auto;
+        aspect-ratio: 16 / 9;
     }
 }

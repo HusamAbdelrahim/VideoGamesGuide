@@ -1,0 +1,71 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="wiki-page">
+
+    <section class="wiki-hero">
+        <p class="wiki-eyebrow">The Area for your Safe Keeping</p>
+        <h1>Gain The Power of Knowledge</h1>
+        <p class="wiki-hero-sub">Guides, stats, and interactive maps for the games you love.</p>
+    </section>
+
+    <h2 class="section-title">Browse wikis</h2>
+
+    <div class="wiki-grid">
+
+        <a href="#" class="game-card">
+            <div class="game-card-cover">
+                <img src="{{ url_for('static', filename='images/games/EldenRingBoxart.jpg') }}" alt="">
+                <span class="game-card-badge">New</span>
+            </div>
+            <h3 class="game-card-title">Elden Ring</h3>
+            <div class="game-card-stats">
+                <span>12 pages</span>
+                <span>5 weapons</span>
+                <span>1 map</span>
+            </div>
+        </a>
+
+        <a href="#" class="game-card">
+            <div class="game-card-cover">
+                <img src="{{url_for('static', filename='images/games/Cyberpunk2077boxart.jpg') }}" alt="">
+                <span class="game-card-badge">New</span>
+            </div>
+            <h3 class="game-card-title">Cyberpunk 2077</h3>
+            <div class="game-card-stats">
+                <span>12 pages</span>
+                <span>113 weapons</span>
+                <span>2 Maps</span>
+            </div>
+        </a>
+
+        <a href="#" class="game-card">
+            <div class="game-card-cover">
+                <img src="{{url_for('static', filename='images/games/RedDeadRedemptionII.jpg') }}" alt="">
+                <span class="game-card-badge">New</span>
+            </div>
+            <h3 class="game-card-title">Red Dead Redemption 2</h3>
+            <div class="game-card-stats">
+                <span>18 pages</span>
+                <span>200 items</span>
+                <span>1 Map</span>
+            </div>
+        </a>
+
+        <a href="#" class="game-card">
+            <div class="game-card-cover">
+                <img src="{{url_for('static', filename='images/games/GrandTheftAutoVI.png') }}" alt="">
+                <span class="game-card-badge">New</span>
+            </div>
+            <h3 class="game-card-title">Grand Theft Auto: VI</h3>
+            <div class="game-card-stats">
+                <span>SOON</span>
+                <span>N/A</span>
+                <span>N/A</span>
+            </div>
+        </a>        
+
+    </div>
+
+</div>
+{% endblock %}
