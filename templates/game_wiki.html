@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+
+{% block title %}{{ game.name }} | Game Wiki{% endblock %}
+
+{% block content %}
+<div class="wiki-page">
+
+    <section class="wiki-hero">
+        <p class="wiki-eyebrow">{{ game.developer }}</p>
+        <h1>{{ game.name }}</h1>
+    </section>
+
+    <div class="hub-grid">
+        {% for section in game.sections %}
+            <section class="hub-section">
+                <h2 class="hub-title">{{ section.title }}</h2>
+                <div class="hub-links">
+                    {% for link in section.links %}
+                        <a href="#" class="hub-link">{{ link }}</a>
+                    {% endfor %}
+                </div>
+            </section>
+        {% endfor %}
+    </div>
+
+</div>
+{% endblock %}

@@ -13,7 +13,7 @@
 
     <div class="wiki-grid">
 
-        <a href="#" class="game-card">
+        <a href="{{ url_for('game_wiki', game='elden-ring') }}" class="game-card">
             <div class="game-card-cover">
                 <img src="{{ url_for('static', filename='images/games/EldenRingBoxart.jpg') }}" alt="">
                 <span class="game-card-badge">New</span>
@@ -26,7 +26,7 @@
             </div>
         </a>
 
-        <a href="#" class="game-card">
+        <a href="{{url_for('game_wiki', game='cyberpunk-2077')}}" class="game-card">
             <div class="game-card-cover">
                 <img src="{{url_for('static', filename='images/games/Cyberpunk2077boxart.jpg') }}" alt="">
                 <span class="game-card-badge">New</span>
@@ -39,7 +39,7 @@
             </div>
         </a>
 
-        <a href="#" class="game-card">
+        <a href="{{url_for('game_wiki', game='rdr2')}}" class="game-card">
             <div class="game-card-cover">
                 <img src="{{url_for('static', filename='images/games/RedDeadRedemptionII.jpg') }}" alt="">
                 <span class="game-card-badge">New</span>
