@@ -67,10 +67,6 @@ body {
 }
 
 .home-layout {
-    display: grid;
-
-    grid-template-columns: minmax(0, 3fr) minmax(320px, 1fr);
-    gap: 24px;
     padding: 24px 32px;
 }
 
@@ -79,7 +75,9 @@ body {
     border-radius: 16px;
     overflow: hidden;
     aspect-ratio: 16 / 9;
-    background: #1a1a1a;
+    background: #000000;
+    max-width: calc((100vh - 140px) * 16 / 9);
+    margin: 0 auto;
 }
 
 .slide-track {
@@ -95,9 +93,11 @@ body {
 }
 
 .slide img {
+    display: block;
     width: 100%;
     height: 100%;
-    object-fit: cover;
+    object-fit: contain;
+    background: #000000;
 }
 
 .slide-caption {
@@ -173,100 +173,6 @@ body {
 
 .slide-arrow:hover {
     background: rgba(0, 0, 0, 0.7);
-}
-
-.relevant-wikis {
-    background: #1a1a1a;
-    border-radius: 16px;
-    padding: 24px;
-    display: flex;
-    flex-direction: column;
-    gap: 12px;
-
-    height: 0;
-    min-height: 100%;
-}
-
-.relevant-wikis h3 {
-    margin: 0;
-    font-size: 20px;
-}
-
-.wiki-list {
-    flex: 1;
-    min-height: 0;
-    overflow-y: auto;
-    display: flex;
-    flex-direction: column;
-    gap: 8px;
-    padding-right: 4px;
-}
-
-.wiki-list {
-    scrollbar-width: thin;
-    scrollbar-color: rgba(255, 255, 255, 0.25) transparent;
-}
-
-.wiki-list::-webkit-scrollbar {
-    width: 6px;
-}
-
-.wiki-list::-webkit-scrollbar-thumb {
-    background: rgba(255, 255, 255, 0.25);
-    border-radius: 999px;
-}
-
-.wiki-item {
-    display: flex;
-    align-items: center;
-    gap: 16px;
-    padding: 10px;
-    border-radius: 12px;
-    text-decoration: none;
-    color: inherit;
-    flex-shrink: 0;
-}
-
-.wiki-item:hover {
-    background: rgba(255, 255, 255, 0.08);
-}
-
-.wiki-item img {
-    width: 140px;
-    height: 79px;
-    object-fit: cover;
-    border-radius: 8px;
-    flex-shrink: 0;
-}
-
-.wiki-item-text h4 {
-    margin: 0 0 6px;
-    font-size: 16px;
-}
-
-.wiki-item-text p {
-    margin: 0;
-    font-size: 13px;
-    opacity: 0.7;
-    line-height: 1.4;
-
-    display: -webkit-box;
-    -webkit-line-clamp: 2;
-    -webkit-box-orient: vertical;
-    overflow: hidden;
-}
-
-.view-all {
-    text-align: center;
-    padding: 12px;
-    border-radius: 12px;
-    color: #ffffff;
-    text-decoration: none;
-    background: rgba(255, 255, 255, 0.06);
-}
-
-.view-all:hover {
-    background: rgba(255, 255, 255, 0.12);
 }
 
 .wiki-page {
@@ -375,17 +281,120 @@ body {
     opacity: 0.65;
 }
 
-a.game-card:hover .game-card-cover img {
+a.game-card[href]:hover .game-card-cover img {
     transform: scale(1.05);
 }
 
-a.game-card:hover .game-card-title {
+a.game-card[href]:hover .game-card-title {
     color: #c9a227;
 }
 
 .game-card.coming-soon {
     opacity: 0.45;
     cursor: default;
+}
+
+.games-grid {
+    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+    gap: 28px 20px;
+}
+
+.games-grid .game-card-cover {
+    aspect-ratio: 16 / 9;
+    border-radius: 10px;
+}
+
+.games-grid .game-card-cover img {
+    object-position: center 30%;
+}
+
+.games-grid .game-card-title {
+    font-size: 15px;
+    line-height: 1.3;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.games-page {
+    max-width: 1800px;
+    margin: 0 auto;
+    padding: 40px 32px 64px;
+}
+
+.games-library {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 36px;
+}
+
+.games-library .game-card-cover {
+    aspect-ratio: 3 / 4;
+    border-radius: 8px;
+    margin-bottom: 0;
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.games-library {
+    align-items: center;
+}
+
+.games-library .game-card-cover {
+    aspect-ratio: auto;
+    background: none;
+}
+
+.games-library .game-card-cover img {
+    display: block;
+    height: auto;
+}
+
+.game-card-cover.fit-top img {
+    object-position: top;
+}
+
+.game-card-cover.fit-bottom img {
+    object-position: bottom;
+}
+
+.game-card-cover.fit-contain img {
+    object-fit: contain;
+}
+
+.game-card-cover.fit-contain.bg-white {
+    background: #ffffff;
+}
+
+.games-library .game-card-title,
+.games-library .game-card-stats {
+    display: none;
+}
+
+.games-library .game-card {
+    position: relative;
+}
+
+.games-library .game-card:hover {
+    z-index: 2;
+}
+
+.games-library .game-card:hover .game-card-cover {
+    transform: scale(1.08);
+    box-shadow: 0 16px 36px rgba(0, 0, 0, 0.7);
+}
+
+.games-library a.game-card[href]:hover .game-card-cover img {
+    transform: none;
+}
+
+.games-credit {
+    margin-top: 40px;
+    font-size: 13px;
+    opacity: 0.6;
+}
+
+.games-credit a {
+    color: inherit;
 }
 
 .hub-grid {
@@ -442,50 +451,24 @@ a.game-card:hover .game-card-title {
     color: #ffffff;
 }
 
-@media (max-width: 1400px) {
-    .wiki-item img {
-        width: 104px;
-        height: 58px;
+@media (max-width: 1100px) {
+    .games-library {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 24px;
     }
 
-    .wiki-item-text h4 {
-        font-size: 14px;
-    }
-
-    .wiki-item-text p {
-        font-size: 12px;
+    .home-layout {
+        padding: 16px;
     }
 }
 
-@media (max-width: 1100px) {
-    .home-layout {
-        grid-template-columns: 1fr;
-        padding: 16px;
+@media (max-width: 700px) {
+    .games-page {
+        padding: 24px 16px 48px;
     }
 
-    .relevant-wikis {
-        height: auto;
-        min-height: 0;
-    }
-
-    .wiki-list {
-        display: grid;
-        grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    .games-library {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
         gap: 16px;
-        flex: none;
-        overflow: visible;
-        padding-right: 0;
-    }
-
-    .wiki-item {
-        flex-direction: column;
-        align-items: stretch;
-        gap: 10px;
-    }
-
-    .wiki-item img {
-        width: 100%;
-        height: auto;
-        aspect-ratio: 16 / 9;
     }
 }

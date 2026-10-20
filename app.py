@@ -1,3 +1,4 @@
+import json
 from flask import Flask, render_template
 
 app = Flask(__name__)
@@ -14,6 +15,12 @@ def elden_ring():
 def wiki():
     return render_template("wikis.html")
 
+@app.route("/games")
+def games():
+    with open("static/data/games.json", encoding="utf-8") as f:
+        library = json.load(f)
+    return render_template("games.html", games=library, wikis=GAMES)
+
 GAMES = {
     "elden-ring": {
         "name": "Elden Ring",
@@ -26,7 +33,7 @@ GAMES = {
         ],
     },
     "cyberpunk-2077":{"name": "Cyberpunk 2077", "developer": "CDProjekt Red"},
-    "rdr2":{"name": "Red Dead Redemption 2", "developer": "Rockstar Games"},
+    "red-dead-redemption-2": {"name": "Red Dead Redemption 2", "developer": "Rockstar Games"},
 }
 
 @app.route("/wiki/<game>")

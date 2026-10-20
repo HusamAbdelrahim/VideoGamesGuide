@@ -1,0 +1,217 @@
+[
+    {
+        "slug": "grand-theft-auto-vi",
+        "cover": "images/games/GTA6.png",
+        "fit": "contain"
+    },
+    {
+        "slug": "grand-theft-auto-v",
+        "cover": "images/games/GTAV.jpg",
+        "fit": "contain"
+    },
+    {
+        "slug": "grand-theft-auto-online",
+        "cover": "images/games/GTAOnline.png",
+        "fit": "contain"
+    },
+    {
+        "slug": "red-dead-redemption-2",
+        "cover": "images/games/RedDeadRedemptionII.png",
+        "fit": "contain"
+    },
+    {
+        "slug": "red-dead-redemption",
+        "cover": "images/games/RDR1.png",
+        "fit": "contain"
+    },
+    {
+        "slug": "red-dead-online",
+        "cover": "images/games/RedDeadOnline..png",
+        "fit": "contain"
+    },
+    {
+        "slug": "grand-theft-auto-the-trilogy-the-definitive-edition",
+        "cover": "images/games/GTATrilogy.png",
+        "fit": "contain"
+    },
+    {
+        "slug": "red-dead-redemption-undead-nightmare",
+        "cover": "images/games/UndeadNightmare.png",
+        "fit": "contain"
+    },
+    {
+        "slug": "la-noire",
+        "cover": "images/games/lanoire.png",
+        "fit": "contain"
+    },
+    {
+        "slug": "bully",
+        "cover": "images/games/Bully.png",
+        "fit": "contain"
+    },
+    {
+        "slug": "max-payne-3",
+        "cover": "images/games/mp3.png",
+        "fit": "contain"
+    },
+    {
+        "slug": "grand-theft-auto-ballad",
+        "cover": "images/games/GTAELC.png",
+        "fit": "contain"
+    },
+    {
+        "slug": "beaterator",
+        "cover": "images/games/Beaterator.png",
+        "fit": "contain"
+    },
+    {
+        "slug": "grand-theft-auto-chinatown-wars",
+        "cover": "images/games/GTACW.png",
+        "fit": "contain"
+    },
+    {
+        "slug": "midnight-club-los-angeles",
+        "cover": "images/games/MCLA.png",
+        "fit": "contain"
+    },
+    {
+        "slug": "gta4",
+        "cover": "images/games/gta4.jpg",
+        "fit": "contain"
+    },
+    {
+        "slug": "manhunt-2",
+        "cover": "images/games/Manhunt2.png",
+        "fit": "contain"
+    },
+    {
+        "slug": "rockstar-table-tennis",
+        "cover": "images/games/TableTennis.png",
+        "fit": "contain"
+    },
+    {
+        "slug": "grand-theft-auto-vice-city-stories",
+        "cover": "images/games/GTAVCS.png",
+        "fit": "contain"
+    },
+    {
+        "slug": "the-warriors",
+        "cover": "images/games/Warriors.png",
+        "fit": "contain"
+    },
+    {
+        "slug": "grand-theft-auto-liberty-city-stories",
+        "cover": "images/games/GTALCS.png",
+        "fit": "contain"
+    },
+    {
+        "slug": "midnight-club-3-dub-edition",
+        "cover": "images/games/MC3.png",
+        "fit": "contain"
+    },
+    {
+        "slug": "grand-theft-auto-san-andreas",
+        "cover": "images/games/GTASA.png",
+        "fit": "contain"
+    },
+    {
+        "slug": "grand-theft-auto-advance",
+        "cover": "images/games/GTAAdvance.png",
+        "fit": "contain"
+    },
+    {
+        "slug": "red-dead-revolver",
+        "cover": "images/games/RedDeadRevolver.png",
+        "fit": "contain"
+    },
+    {
+        "slug": "manhunt",
+        "cover": "images/games/Manhunt.png",
+        "fit": "contain"
+    },
+    {
+        "slug": "max-payne-2-the-fall-of-max-payne",
+        "cover": "images/games/mp2.png",
+        "fit": "contain"
+    },
+    {
+        "slug": "grand-theft-auto-vice-city",
+        "cover": "images/games/GTAVC.png",
+        "fit": "contain"
+    },
+    {
+        "slug": "midnight-club-ii",
+        "cover": "images/games/MC2.png",
+        "fit": "contain"
+    },
+    {
+        "slug": "grand-theft-auto-iii",
+        "cover": "images/games/GTA3.png",
+        "fit": "contain"
+    },
+    {
+        "slug": "smugglers-run-warzones",
+        "cover": "images/games/SRWarzones.png",
+        "fit": "contain"
+    },
+    {
+        "slug": "max-payne",
+        "cover": "images/games/mp1.png",
+        "fit": "contain"
+    },
+    {
+        "slug": "state-of-emergency",
+        "cover": "images/games/StateOfEmergency.png",
+        "fit": "contain"
+    },
+    {
+        "slug": "the-italian-job",
+        "cover": "images/games/ItalianJob.png",
+        "fit": "contain"
+    },
+    {
+        "slug": "smugglers-run-2-hostile-territory",
+        "cover": "images/games/SR2.png",
+        "fit": "contain"
+    },
+    {
+        "slug": "midnight-club-street-racing",
+        "cover": "images/games/MC1.png",
+        "fit": "contain"
+    },
+    {
+        "slug": "smugglers-run",
+        "cover": "images/games/SR1.png",
+        "fit": "contain"
+    },
+    {
+        "slug": "oni",
+        "cover": "images/games/oni.png",
+        "fit": "contain"
+    },
+    {
+        "slug": "grand-theft-auto-2",
+        "cover": "images/games/GTA2.png",
+        "fit": "contain"
+    },
+    {
+        "slug": "grand-theft-auto-mission-pack-1-london-1969",
+        "cover": "images/games/GTALondon.png",
+        "fit": "contain"
+    },
+    {
+        "slug": "grand-theft-auto",
+        "cover": "images/games/GTA1.png",
+        "fit": "contain"
+    },
+    {
+        "slug": "thrasher-presents-skate-and-destroy",
+        "cover": "images/games/Thrasher.png",
+        "fit": "contain"
+    },
+    {
+        "slug": "wild-metal",
+        "cover": "images/games/WildMetal.png",
+        "fit": "contain"
+    }
+]

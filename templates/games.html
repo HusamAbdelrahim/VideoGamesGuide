@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+
+{% block title %}Games | Game Wiki{% endblock %}
+
+{% block content %}
+<div class="games-page">
+
+    <h1 class="section-title">Games</h1>
+
+    <div class="games-library">
+        {% for game in games %}
+
+            {% set has_wiki = game.slug in wikis %}
+
+            <a class="game-card" {% if has_wiki %}href="{{ url_for('game_wiki', game=game.slug) }}"{% endif %}>
+                <div class="game-card-cover {% if game.fit %}fit-{{ game.fit }}{% endif %}">
+                    <img src="{{ url_for('static', filename=game.cover) }}" alt="{{ game.slug }}" loading="lazy">
+                    {% if has_wiki %}
+                        <span class="game-card-badge">Wiki</span>
+                    {% endif %}
+                </div>
+                <h3 class="game-card-title">{{ game.slug }}</h3>
+            </a>
+
+        {% endfor %}
+    </div>
+
+</div>
+{% endblock %}
